@@ -158,10 +158,9 @@ cmap_colors[0] = (0, 0, 0, 0)  # 0 values are transparent
 cmap = ListedColormap(cmap_colors)
 image = plt.imread('de_overpass_radar.jpeg')
 
-# Plot the JPEG image with custom extent for x-axis and y-axis
 plt.imshow(image, extent=[xMin-600, xMax+300, yMin, yMax])
 
-# Heatmap will overlay the image
+#map will overlay the image
 plt.imshow(heatmap.T, origin='lower', cmap=cmap, alpha=0.5, extent=[xMin, xMax, yMin, yMax])
 
 plt.colorbar(label='Frequency')
