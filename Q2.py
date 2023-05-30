@@ -39,10 +39,9 @@ boundaries = {
 x_coords = [coord[0] for coord in boundaries.values()]
 y_coords = [coord[1] for coord in boundaries.values()]
 
-"""
-determines the minimum and maximum values for the x and y coordinates 
-mini and max values are stored in vector1 and vector2 respectively
-"""
+
+#determine min and max values for the x and y coordinates 
+#min and max values are stored in vector1 and vector2 respectively
 vector1 = (min(x_coords), min(y_coords))
 vector2 = (max(x_coords), max(y_coords))
 
@@ -51,7 +50,7 @@ vector2 = (max(x_coords), max(y_coords))
 isBoundary = Game.is_within_boundary(vector1, vector2)
 
 maxRows = len(isBoundary) #total num of rows
-threshold = 0.5  #i would think above 50% is common and below is uncommon
+threshold = 0.5  #i would think above 50% is common and below is uncommon but this can of course be changed
 
 if maxRows > 0:
     team2 = 0 #number of team2 entering through light blue boundary in T side
@@ -97,11 +96,38 @@ b.
 
 #now that I think about it q2.a can also be modified to have a filtered dataset
 
+Game.extract_Weapons()
+
+location = 'BombsiteB' #this can be changed depending on what location we want to check 
+
+filteredData = Game.gameData[
+    (Game.gameData['team'] == 'Team2') & #Team2
+    (Game.gameData['side'] == 'T') & #T side
+    (Game.gameData['area_name'] == location) & #further filtered data to only include our target location for Team2 on T
+    (Game.gameData['inventory'].apply(lambda x: isinstance(x, list) and len(x) >= 2)) #2 or more in inventory
+    ]
+
+#print(filteredData['clock_time'])
+
+
+if location not in filteredData['area_name'].unique():
+    print(f"Error: '{location}' not found in dataset.")
+else:
+    filteredData = filteredData.copy()
+    filteredData['clock_time'] = pd.to_datetime(filteredData['clock_time'], format='%M:%S') #clock_time is a str but we need to take the mean so it must be formatted
+    #we get a warning for the above line of code SettingWithCopyWarning
+    #to bypass this we create filteredData = filteredData.copy()
+    
+    averageTimer = filteredData['clock_time'].mean()
+    averageTimer = averageTimer.strftime('%M:%S')  # Format the average timer as "MM:SS" string
+    print(f"The average timer that Team2 on T side enters '{location}' with at least 2 rifles or SMGs is: {averageTimer}")
 
 """
 
 c.
 
 """
+#again use filtered data for Team2 CT side in BombsiteB 
+#after filtering create a heatmap for all the x,y coordinates use the map provided
 
 
