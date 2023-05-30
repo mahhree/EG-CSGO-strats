@@ -94,17 +94,3 @@ class ProcessGameState:
         this code can easily be modified to hold that information
         but i assume we do not care what type of rifle, smg, pistol, etc they have. just that they have one. 
         """
-
-
-
-
-
-
-
-
-
-
-
-
-
-#print(Game.extract_Weapons())
