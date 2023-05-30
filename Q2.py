@@ -105,7 +105,7 @@ filteredData = Game.gameData[
     (Game.gameData['team'] == 'Team2') & #Team2
     (Game.gameData['side'] == 'T') & #T side
     (Game.gameData['area_name'] == location) & #further filtered data to only include our target location for Team2 on T
-    (Game.gameData['inventory'].apply(lambda x: isinstance(x, list) and len(x) >= 2)) #2 or more in inventory
+    (Game.gameData['inventory'].apply(lambda x: isinstance(x, list) and len(x) >= 2)) #2 or more in inventory because rifles and SMGs are primary pistol is secondary
     ]
 
 #print(filteredData['clock_time'])
