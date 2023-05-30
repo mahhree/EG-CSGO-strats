@@ -170,3 +170,4 @@ plt.title('Heatmap of Team2 on CT side in BombsiteB')
 plt.show()
 
 #the heatmap is provided in the folder. unfortunately i could not line it up perfectly with the image provided
+#i would also need to add (Game.gameData['area_name'] == 'BombsiteB') to filteredDated1, but also i could not get it to line up anywhere near as nice as this
