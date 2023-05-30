@@ -70,7 +70,7 @@ class ProcessGameState:
         """
         weaponClasses = {}
         if self.gameData is None:
-            self.ingestion()
+            print("Game data has not been loaded. Please handle file ingestion first.")
         try:
             for index, inventory in enumerate(self.gameData['inventory']):
                 if isinstance(inventory, np.ndarray):
@@ -84,8 +84,6 @@ class ProcessGameState:
                     weaponClasses[index] = weaponClasses_list
         except KeyError:
             print("Error: 'inventory' column not found in the loaded data.")
-        #return weaponClasses
-    
         """
         this is written based on the knowledge of there is no specific gun information given
         for example: the player has a rifle, but we do not know what type of rifle
