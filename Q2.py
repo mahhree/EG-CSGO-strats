@@ -64,3 +64,11 @@ else:
     print("No entries found within the boundaries for Team2 on T side.")
 
 #Based on the created class ProcessGameState, entering via the light blue boundary is not a common strategy used by Team2 on T side. 
+
+"""
+
+b. What is the average timer that Team2 on T (terrorist) side enters
+“BombsiteB” with least 2 rifles or SMGs?
+
+"""
+
