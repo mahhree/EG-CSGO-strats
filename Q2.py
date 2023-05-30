@@ -13,7 +13,8 @@
 #question 2 will be coded and answered here
 
 from Q1 import ProcessGameState
-
+import pandas as pd
+import numpy as np
 
 Game = ProcessGameState()
 Game.ingestion()
@@ -119,8 +120,8 @@ else:
     #to bypass this we create filteredData = filteredData.copy()
     
     averageTimer = filteredData['clock_time'].mean()
-    averageTimer = averageTimer.strftime('%M:%S')  # Format the average timer as "MM:SS" string
-    print(f"The average timer that Team2 on T side enters '{location}' with at least 2 rifles or SMGs is: {averageTimer}")
+    averageTimer = averageTimer.strftime('%M:%S')  #format it to look like 00:00 as we see in game
+    print(f"The average timer that Team2 on T side enters {location} with at least 2 rifles or SMGs is: {averageTimer}")
 
 """
 
