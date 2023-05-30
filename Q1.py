@@ -1,3 +1,16 @@
+"""
+1. Write a python class called ProcessGameState that will accomplish the
+following:
+    a. Handle file ingestion and ETL (if deemed necessary)
+    b. Return whether or not each row falls within a provided boundary
+        i. Be as efficient as possible (minimize runtime)
+        ii. Reduce dependencies outside of standard Python libraries unless
+        you can prove significant improvements.
+    c. Extract the weapon classes from the inventory json column
+"""
+
+
+
 #question 1 will be coded and answered here
 
 import pandas as pd

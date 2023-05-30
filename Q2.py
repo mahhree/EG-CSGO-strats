@@ -1,3 +1,15 @@
+"""
+2. Using the created class, answer the following questions:
+    a. Is entering via the light blue boundary a common strategy used by
+        Team2 on T (terrorist) side?
+    b. What is the average timer that Team2 on T (terrorist) side enters
+        “BombsiteB” with least 2 rifles or SMGs?
+    c. Now that we haveve gathered data on Team2 T side, let's examine their CT
+        (counter-terrorist) Side. Using the same data set, tell our coaching
+        staff where you suspect them to be waiting inside “BombsiteB”
+            i. Hint: Try a heatmap
+"""
+
 #question 2 will be coded and answered here
 
 from Q1 import ProcessGameState
@@ -8,8 +20,7 @@ Game.ingestion()
 
 """
 
-a. Is entering via the light blue boundary a common strategy used by
-Team2 on T (terrorist) side?
+a. 
 
 """
 
@@ -21,11 +32,10 @@ boundaries = {
     16: [-2472, 1233],
     17: [-1565, 580]
 }
-"""
-collect all the x and y values from the boundaries dictionary
-create two separate lists, x_coords to store all the x values and 
-y_coords to store all the y values
-"""
+
+#collect all the x and y values from the boundaries dictionary
+#create two separate lists, x_coords to store all the x values and 
+#y_coords to store all the y values
 x_coords = [coord[0] for coord in boundaries.values()]
 y_coords = [coord[1] for coord in boundaries.values()]
 
@@ -36,7 +46,8 @@ mini and max values are stored in vector1 and vector2 respectively
 vector1 = (min(x_coords), min(y_coords))
 vector2 = (max(x_coords), max(y_coords))
 
-# Check if Team2 enters within the boundaries note that this is a boundary check for ALL players not only Team2 on T side
+#check if Team2 enters within the boundaries 
+    #note that checks for ALL players not only Team2 on T side
 isBoundary = Game.is_within_boundary(vector1, vector2)
 
 maxRows = len(isBoundary) #total num of rows
@@ -68,23 +79,28 @@ else:
 
 """
 
-b. What is the average timer that Team2 on T (terrorist) side enters
-“BombsiteB” with least 2 rifles or SMGs?
+b.
 
 """
-#for each timer check Team2 on T with at least 2 rifles and SMGs in invetnory in BombsiteB
-#go through each timer 
-    #if Team2 & T side & 2 rifles and the rest SMGs
-        #save timer
-#take timer average and display
+#extract weapons
+#check only Team2, T side, and 2 riffles and SMGS
+#check BombsiteB location
+#find average timer in BombsiteB location
+
+#i believe making a filtered dataset will improve this greatly
+#filtered dataset will have Team2, Tside, and >= 2 inventory space 
+    #more than 2 in inventory because rifles and SMGs are primary weapons but they may also have a secondary weapon (pistol)
+    #note that this can include a pistol and grenade in inventory but we will filter it later 
+#after checking BombsiteB
+    #futher filter dataset to only include BombsiteB
+#take average of times in new filtered dataset
+
+#now that I think about it q2.a can also be modified to have a filtered dataset
 
 
 """
 
-c. Now that we have gathered data on Team2 T side, let's examine their CT
-(counter-terrorist) Side. Using the same data set, tell our coaching
-staff where you suspect them to be waiting inside “BombsiteB”
-i. Hint: Try a heatmap
+c.
 
 """
 
