@@ -1,3 +1,9 @@
+3. (No Coding) Most of the time, our stakeholders (in this case, the CS:GO
+coaching staff) aren’t tech-savvy enough to run code themselves. Propose a
+solution to your product manager that:
+    a. could allow our coaching staff to request or acquire the output themselves
+    b. takes less than 1 weeks worth of work to implement 
+
 Question 3 will be answered here.
 
 
