@@ -95,8 +95,6 @@ class ProcessGameState:
         but i assume we do not care what type of rifle, smg, pistol, etc they have. just that they have one. 
         """
 
-Game = ProcessGameState()
-Game.ingestion()
 
 
 
