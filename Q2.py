@@ -138,33 +138,31 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.colors import ListedColormap
 
-
-
 filteredData1 = Game.gameData[
     (Game.gameData['team'] == 'Team2') &
     (Game.gameData['side'] == 'CT') 
 ]
 
-x_values = filteredData1['x']
-y_values = filteredData1['y']
+x = filteredData1['x']
+y = filteredData1['y']
 
 # Define the custom x-axis and y-axis limits
-x_min = min(x_values)
-x_max = max(x_values)
-y_min = min(y_values)
-y_max = max(y_values)
+xMin = min(x)
+xMax = max(x)
+yMin = min(y)
+yMax = max(y)
 
-heatmap, x_edges, y_edges = np.histogram2d(x_values, y_values, bins=(50, 50))
+heatmap, x_edges, y_edges = np.histogram2d(x, y, bins=(50, 50))
 cmap_colors = sns.color_palette("Blues", n_colors=256)
 cmap_colors[0] = (0, 0, 0, 0)  # 0 values are transparent
 cmap = ListedColormap(cmap_colors)
 image = plt.imread('de_overpass_radar.jpeg')
 
 # Plot the JPEG image with custom extent for x-axis and y-axis
-plt.imshow(image, extent=[x_min-600, x_max+300, y_min, y_max])
+plt.imshow(image, extent=[xMin-600, xMax+300, yMin, yMax])
 
 # Heatmap will overlay the image
-plt.imshow(heatmap.T, origin='lower', cmap=cmap, alpha=0.5, extent=[x_min, x_max, y_min, y_max])
+plt.imshow(heatmap.T, origin='lower', cmap=cmap, alpha=0.5, extent=[xMin, xMax, yMin, yMax])
 
 plt.colorbar(label='Frequency')
 plt.xlabel('X')
