@@ -123,12 +123,14 @@ else:
     averageTimer = averageTimer.strftime('%M:%S')  #format it to look like 00:00 as we see in game
     print(f"The average timer that Team2 on T side enters {location} with at least 2 rifles or SMGs is: {averageTimer}")
 
+#according to the code and the data provided, The average timer that Team2 on T side enters BombsiteB with at least 2 rifles or SMGs is 00:55
+
 """
 
 c.
 
 """
 #again use filtered data for Team2 CT side in BombsiteB 
-#after filtering create a heatmap for all the x,y coordinates use the map provided
+#after filtering create a heatmap for all the x,y coordinates
 
 
