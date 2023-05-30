@@ -10,12 +10,13 @@ incorporate dropdown menus, text fields, and even checkboxes to gather relevant 
 instructions to guide the user through the process. Once we have finalized what we want to see, we can now implement simple 
 functionality. Start the development of the website to handle simple questions for testing purposes. For example, create a feature 
 that calculates the average timer during a CS:GO match given specific fields. The user will input the team, side, player location, 
-and weapons held via dropdown menus or text fields. After the provided information, the website will calculate and present the 
-average timer and answer question 2, part b of the SWE assessment. After simple implementation, we will enhance the website to answer 
-more complex queries by expanding the questions the website can handle. This would be handled in the form of a sentence provided by 
-the coaching staff and parsed using algorithms that can analyze the data and provide answers. To further improve the user experience, 
-we can incorporate graphics and interactive elements. Graphics could include charts, graphs, or diagrams to present data in an 
-understandable format. A good example would be a heat map for question 2, part c.
+and weapons held via dropdown menus or text fields. The code also already handles incorrect fields. Therefore, if the user provides a 
+value that is not in the dataset, they will be asked to change their provided data. After the provided information, the website will 
+calculate and present the average timer and answer question 2, part b of the SWE assessment. After simple implementation, we will 
+enhance the website to answer more complex queries by expanding the questions the website can handle. This would be handled in the 
+form of a sentence provided by the coaching staff and parsed using algorithms that can analyze the data and provide answers. To 
+further improve the user experience, we can incorporate graphics and interactive elements. Graphics could include charts, graphs, or 
+diagrams to present data in an understandable format. A good example would be a heat map for question 2, part c.
 
 By following this approach, we develop a website that is user friendly and allows less tech-savvy individuals to use the code we 
 created. It will improve the time taken to develop a strategy and be visually pleasing and fun to use!
