@@ -37,9 +37,9 @@ vector1 = (min(x_coords), min(y_coords))
 vector2 = (max(x_coords), max(y_coords))
 
 # Check if Team2 enters within the boundaries note that this is a boundary check for ALL players not only Team2 on T side
-boundaries = Game.is_within_boundary(vector1, vector2)
+isBoundary = Game.is_within_boundary(vector1, vector2)
 
-maxRows = len(boundaries) #total num of rows
+maxRows = len(isBoundary) #total num of rows
 threshold = 0.5  #i would think above 50% is common and below is uncommon
 
 if maxRows > 0:
@@ -49,7 +49,7 @@ if maxRows > 0:
     for index, row in Game.gameData.iterrows(): #we only want team2 on T side data
         if row['team'] == 'Team2' and row['side'] == 'T':
             total_team2 += 1
-            if boundaries.get(index, False):
+            if isBoundary.get(index, False):
                 team2 += 1
 
     #i believe the ratio should be team2 on T at boundary/team2 on T side
