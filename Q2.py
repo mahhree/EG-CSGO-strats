@@ -65,10 +65,26 @@ else:
 
 #Based on the created class ProcessGameState, entering via the light blue boundary is not a common strategy used by Team2 on T side. 
 
+
 """
 
 b. What is the average timer that Team2 on T (terrorist) side enters
 “BombsiteB” with least 2 rifles or SMGs?
+
+"""
+#for each timer check Team2 on T with at least 2 rifles and SMGs in invetnory in BombsiteB
+#go through each timer 
+    #if Team2 & T side & 2 rifles and the rest SMGs
+        #save timer
+#take timer average and display
+
+
+"""
+
+c. Now that we have gathered data on Team2 T side, let's examine their CT
+(counter-terrorist) Side. Using the same data set, tell our coaching
+staff where you suspect them to be waiting inside “BombsiteB”
+i. Hint: Try a heatmap
 
 """
 

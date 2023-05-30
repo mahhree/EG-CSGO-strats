@@ -57,6 +57,7 @@ class ProcessGameState:
             x = row['x']
             y = row['y']
 
+            #check specific boundary and store its bool value 
             boundaryCheck[index] = bool( x_coords[0] <= x <= x_coords[1] and y_coords[0] <= y <= y_coords[1] )
 
         return boundaryCheck
