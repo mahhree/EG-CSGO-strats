@@ -170,3 +170,4 @@ plt.ylabel('Y')
 plt.title('Heatmap of Team2 on CT side in BombsiteB')
 plt.show()
 
+#the heatmap is provided in the folder. unfortunately i could not line it up perfectly with the image provided
