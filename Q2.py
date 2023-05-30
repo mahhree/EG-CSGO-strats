@@ -133,4 +133,42 @@ c.
 #again use filtered data for Team2 CT side in BombsiteB 
 #after filtering create a heatmap for all the x,y coordinates
 
+#i could not find another way to create a heatmap without importing these
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.colors import ListedColormap
+
+
+
+filteredData1 = Game.gameData[
+    (Game.gameData['team'] == 'Team2') &
+    (Game.gameData['side'] == 'CT') 
+]
+
+x_values = filteredData1['x']
+y_values = filteredData1['y']
+
+# Define the custom x-axis and y-axis limits
+x_min = min(x_values)
+x_max = max(x_values)
+y_min = min(y_values)
+y_max = max(y_values)
+
+heatmap, x_edges, y_edges = np.histogram2d(x_values, y_values, bins=(50, 50))
+cmap_colors = sns.color_palette("Blues", n_colors=256)
+cmap_colors[0] = (0, 0, 0, 0)  # 0 values are transparent
+cmap = ListedColormap(cmap_colors)
+image = plt.imread('de_overpass_radar.jpeg')
+
+# Plot the JPEG image with custom extent for x-axis and y-axis
+plt.imshow(image, extent=[x_min-600, x_max+300, y_min, y_max])
+
+# Heatmap will overlay the image
+plt.imshow(heatmap.T, origin='lower', cmap=cmap, alpha=0.5, extent=[x_min, x_max, y_min, y_max])
+
+plt.colorbar(label='Frequency')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Heatmap of Team2 on CT side in BombsiteB')
+plt.show()
 
