@@ -33,14 +33,37 @@ class ProcessGameState:
         except FileNotFoundError: #if no file found. location incorrect
             print(f"Error: File '{self.parquetFile}' is not found. Please check file location.")
 
-
-
-
-
-    
-    def extract_Weapons(self):#c
+    def is_within_boundary(self, vector1, vector2): #b
         """
-        Extract the weapon classes from the inventory JSON column,
+        return whether or not each row falls within a provided boundary
+
+        Parameters:
+            vector1: vector of (x,y) coordinates 
+            vector2: vector of (x,y) coordinates 
+
+        Returns:
+            boundaryCheck: a dict mapping row index to a bool value indicating whether it falls within the given boundary
+        """
+        if self.gameData is None:
+            print("Game data has not been loaded. Please handle file ingestion first.")
+
+        #seperate and sort the x vectors and y vectors 
+        x_coords = sorted([vector1[0], vector2[0]])
+        y_coords = sorted([vector1[1], vector2[1]])
+
+        boundaryCheck = {}
+
+        for index, row in self.gameData.iterrows():
+            x = row['x']
+            y = row['y']
+
+            boundaryCheck[index] = bool( x_coords[0] <= x <= x_coords[1] and y_coords[0] <= y <= y_coords[1] )
+
+        return boundaryCheck
+
+    def extract_Weapons(self): #c
+        """
+        Extract the weapon classes from the inventory json column,
         update inventory to have a list of weapons
 
         Updates the inventory in game_data and returns the weapon_classes dictionary.
